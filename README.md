@@ -7,7 +7,7 @@ My friend made such device for our games but at present we have nice smartphones
 # How to use
 Either build it self or download my prebuilt APK file and install to device, after start you will see   
 ![Standard screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_standard.jpg)   
-You can select the Pro version through the menu 
+You can select the Pro version through the menu   
 ![Pro screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_pro.jpg)   
 Just press the screen of your device in any point to start turn.
 # Where to load?
