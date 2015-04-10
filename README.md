@@ -5,7 +5,7 @@ The Main problem for the game is that the game needs special dice to play
 ![Special dice for the game](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/realdice.jpg)   
 My friend made such device for our games but at present we have nice smartphones and I decided to make Android version of such dice.
 # How to use
-Either build it self or download my prebuilt APK file and install to device, after start you will see   
+The Android application is compatible with Android 2.1+. Either build it self or download my prebuilt APK file and install to device, after start you will see   
 ![Standard screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_standard.jpg)   
 You can select the Pro version through the menu   
 ![Pro screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_pro.jpg)   
