@@ -13,5 +13,5 @@ Just press the screen of your device in any point to start turn.
 # Where to load?
 [I have published the prebuilt version in my Google drive.](https://drive.google.com/open?id=0BxHnNp97IgMRfnhZdGFwTnZVYlVoN3RfT3FrVFBnVHQwRU95NldTbEJCRGFEZGczNzhFUHM&authuser=0)
 # Redesigned version of the paper board game
-Also I found very interesting project to redesign the game, [it was published on a Russian board game forum](http://www.boardgamer.ru/piraty-raspechataj-i-igraj#more-27882)   
+Also I found very interesting project from entusiasts in internet where they made deep redesign of the graphical components of the game, [it was published on a Russian board game forum](http://www.boardgamer.ru/piraty-raspechataj-i-igraj#more-27882)   
 ![Redesigned map](http://savepic.org/4230743.jpg)
