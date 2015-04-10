@@ -4,3 +4,5 @@
 /.idea/libraries
 .DS_Store
 /build
+/.nb-gradle/private/
+/.nb-gradle/profiles/private/

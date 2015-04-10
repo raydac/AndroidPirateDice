@@ -33,8 +33,24 @@ public class MainActivity extends Activity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         final Type type = Model.getInstance().getType();
-        menu.findItem(R.id.action_pro).setVisible(type != Type.PROFESSIONAL);
-        menu.findItem(R.id.action_standard).setVisible(type != Type.STANDARD);
+
+        switch(type){
+          case PROFESSIONAL: {
+            menu.findItem(R.id.action_standard).setVisible(false);
+            menu.findItem(R.id.action_pro).setVisible(false);
+            menu.findItem(R.id.action_redesigned).setVisible(true);
+          }break;
+          case REDESIGNED: {
+            menu.findItem(R.id.action_standard).setVisible(true);
+            menu.findItem(R.id.action_pro).setVisible(false);
+            menu.findItem(R.id.action_redesigned).setVisible(false);
+          }break;
+          case STANDARD: {
+            menu.findItem(R.id.action_standard).setVisible(false);
+            menu.findItem(R.id.action_pro).setVisible(true);
+            menu.findItem(R.id.action_redesigned).setVisible(false);
+          }break;
+        }
         return true;
     }
 
@@ -77,6 +93,10 @@ public class MainActivity extends Activity {
             }
             case R.id.action_pro : {
                 Model.getInstance().setType(Type.PROFESSIONAL);
+                return true;
+            }
+            case R.id.action_redesigned : {
+                Model.getInstance().setType(Type.REDESIGNED);
                 return true;
             }
             case R.id.action_standard : {

@@ -2,6 +2,11 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+            android:id="@+id/action_redesigned"
+            android:orderInCategory="95"
+            android:title="Redesigned"
+            />
+    <item
             android:id="@+id/action_pro"
             android:orderInCategory="100"
             android:title="Pro"
