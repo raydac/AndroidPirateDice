@@ -14,4 +14,13 @@ public enum Type {
     public String getResource(){
       return this.resource;
     }
+
+  public static Type next(final Type type) {
+    if (type == null) return STANDARD;
+    int index = type.ordinal()+1;
+    if (index>=Type.values().length){
+      index = 0;
+    }
+    return Type.values()[index];
+  }
 }

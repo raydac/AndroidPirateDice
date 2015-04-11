@@ -68,6 +68,10 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
     theThread.start();
   }
 
+  @Override public void doStartTurn(final Model model) {
+    this.startTurn();
+  }
+
   @Override
   public void surfaceCreated(final SurfaceHolder surfaceHolder) {
     try {
@@ -217,11 +221,15 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
     }
   }
 
-  @Override
-  public boolean onLongClick(View view) {
+  public void startTurn(){
     if (angleSpeed == 0.0f) {
       startIteration(r.nextInt(300));
     }
+  }
+
+  @Override
+  public boolean onLongClick(View view) {
+    startTurn();
     return true;
   }
 

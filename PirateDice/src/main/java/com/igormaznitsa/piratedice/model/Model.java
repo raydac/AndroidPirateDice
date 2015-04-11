@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
-    public interface ModelListener {
+
+  public interface ModelListener {
         void onModelChanged(Model m);
         void onPause(Model m, boolean pause);
         void onDispose(Model m);
+        void doStartTurn(Model m);
     }
 
     private static Model instance;
@@ -38,17 +40,25 @@ public class Model {
         return this.type;
     }
 
-    public void setType(final Type t){
+
+  public void startTurn() {
+    for(final ModelListener l : listeners){
+      l.doStartTurn(this);
+    }
+  }
+
+  public void nextType() {
+    this.type = Type.next(this.type);
+    fireListeners();
+  }
+
+  public void setType(final Type t){
         if (t==null) throw new NullPointerException();
 
         if (t != this.type){
             this.type = t;
             fireListeners();
         }
-    }
-
-    public boolean isPaused(){
-        return this.paused;
     }
 
     public void setPaused(final boolean paused){
