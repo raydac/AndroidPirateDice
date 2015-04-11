@@ -17,7 +17,7 @@ Also the applications can work wit non-touch screens so that it can be started e
 To change the dice layout to PRO or REDESIGNED versions is very easy, just open the menu of the application and select 'Pro' item. Every layout change, the menu item will be changing its name to the next layout identifier.   
 ![Menu screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_menu.jpg)   
 # Where to load?
-[You can download the latest reseased APK through the link.](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.1/PirateDice.apk)   
+[You can download the latest reseased APK through the link.](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.2/PirateDice.apk)   
 [Also you can visit my Google Folder related to the "Pirates" game.](https://drive.google.com/open?id=0BxHnNp97IgMRfnhZdGFwTnZVYlVoN3RfT3FrVFBnVHQwRU95NldTbEJCRGFEZGczNzhFUHM&authuser=0)
 # Redesigned version of the paper board game
 Also I found [very interesting project developed by entusiasts from one Russian board game forum](http://www.boardgamer.ru/piraty-raspechataj-i-igraj#more-27882), they have totaly reworked and redesigned game components and even made some improvements in game process.   
