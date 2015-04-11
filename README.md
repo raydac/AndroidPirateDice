@@ -18,5 +18,5 @@ To change the dice layout to PRO or REDESIGNED versions is very easy, just open 
 [You can download the latest reseased APK through the link.](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.1/PirateDice.apk)   
 [Also you can visit my Google Folder related to the "Pirates" game.](https://drive.google.com/open?id=0BxHnNp97IgMRfnhZdGFwTnZVYlVoN3RfT3FrVFBnVHQwRU95NldTbEJCRGFEZGczNzhFUHM&authuser=0)
 # Redesigned version of the paper board game
-Also I found very interesting project developed by entusiasts from one Russian board game forum, they have totaly reworked and redesigned game components and even made some improvements in game process.](http://www.boardgamer.ru/piraty-raspechataj-i-igraj#more-27882)   
+Also I found [very interesting project developed by entusiasts from one Russian board game forum](http://www.boardgamer.ru/piraty-raspechataj-i-igraj#more-27882), they have totaly reworked and redesigned game components and even made some improvements in game process.   
 ![Redesigned map](http://savepic.org/4230743.jpg)
