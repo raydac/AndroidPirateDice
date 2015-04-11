@@ -7,7 +7,7 @@ My friend made such device for our games but at present we have nice smartphones
 # How to install?
 The Android application is compatible with Android 2.1+. Either build it self or [download my prebuilt APK file](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.2/PirateDice.apk) and install to your device. 
 # How to use?
-After start you will see the dice indicator. Just touch the screen to start turn.   
+After start you will see the dice indicator. Just touch the screen (with some delay) to start turn.   
 ![Standard screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_standard.jpg)
 ![Pro screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_pro.jpg)
 ![Redesigned screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_redisigned.jpg)   
