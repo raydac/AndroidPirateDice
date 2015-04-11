@@ -6,7 +6,6 @@ import android.view.*;
 import android.widget.Toast;
 import com.igormaznitsa.piratedice.model.Model;
 import com.igormaznitsa.piratedice.model.Type;
-import com.igormaznitsa.piratedice.ui.InteractiveIndicator;
 
 public class MainActivity extends Activity {
 
@@ -15,7 +14,7 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     requestWindowFeature(Window.FEATURE_NO_TITLE);
-    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON | WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     setContentView(R.layout.main);
   }
@@ -90,14 +89,15 @@ public class MainActivity extends Activity {
 
   @Override
   protected void onResume() {
-    Model.getInstance().setPaused(false);
     super.onResume();
+    Model.getInstance().doRestore();
+    Model.getInstance().setPaused(false);
   }
 
   @Override
   protected void onPause() {
+    super.onPause();
     Model.getInstance().setPaused(true);
-    super.onResume();
   }
 
   @Override

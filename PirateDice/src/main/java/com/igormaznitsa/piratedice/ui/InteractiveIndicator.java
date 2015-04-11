@@ -2,9 +2,15 @@ package com.igormaznitsa.piratedice.ui;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.graphics.*;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Picture;
+import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.view.*;
+import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
 import com.igormaznitsa.piratedice.model.Model;
 import com.igormaznitsa.piratedice.model.Type;
 import com.larvalabs.svgandroid.SVG;
@@ -14,30 +20,20 @@ import java.util.Random;
 
 public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.Callback, Runnable, View.OnLongClickListener, Model.ModelListener {
 
+  private static final Object gfxLock = new Object();
+  private final Random r = new Random();
   private SVG vertushka;
   private Bitmap vertushkaPic;
-
   private Picture strelkaPic;
   private SVG strelka;
-
   private Rect area = new Rect(0, 0, 100, 100);
-
   private int screenWidth = -1;
   private int screenHeight = -1;
-
-  private Thread theThread;
-
+  private volatile Thread theThread;
   private SurfaceHolder holder;
-
   private float angle;
-
   private float angleSpeed;
   private float angleDecreaseStep;
-
-  private static final Object gfxLock = new Object();
-
-  private final Random r = new Random();
-
   private volatile boolean disposed = false;
   private volatile boolean paused = false;
 
@@ -59,28 +55,8 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
     initRest();
   }
 
-  private void initRest() {
-    setOnLongClickListener(this);
-    Model.getInstance().addListener(this);
-
-    theThread = new Thread(this);
-    theThread.setDaemon(true);
-    theThread.start();
-  }
-
-  @Override public void doStartTurn(final Model model) {
-    this.startTurn();
-  }
-
-  @Override
-  public void surfaceCreated(final SurfaceHolder surfaceHolder) {
-    try {
-      strelka = SVGParser.getSVGFromAsset(getContext().getAssets(), "svg/strelka.svg");
-      updateForMode(getContext().getAssets());
-    }
-    catch (Exception ex) {
-      throw new Error("Can't load svg", ex);
-    }
+  @Override public void onRestore(Model m) {
+    initRest();
   }
 
   private static Bitmap scaleSVG(final SVG svg, int width, int height, final ScaleCoeffs a) {
@@ -118,6 +94,43 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
       }
 
       return svg.resizePictureAsBitmap(width, height);
+    }
+  }
+
+  private void initRest() {
+    setOnLongClickListener(this);
+    Model.getInstance().addListener(this);
+
+    if (theThread != null) {
+      try {
+        theThread.interrupt();
+      }catch(Exception ex){
+        ex.printStackTrace();
+      }
+    }
+
+    final Thread newOne = new Thread(this);
+    newOne.setDaemon(true);
+    newOne.start();
+    this.theThread = newOne;
+  }
+
+  public void reinit() {
+    initRest();
+  }
+
+  @Override public void doStartTurn(final Model model) {
+    this.startTurn();
+  }
+
+  @Override
+  public void surfaceCreated(final SurfaceHolder surfaceHolder) {
+    try {
+      strelka = SVGParser.getSVGFromAsset(getContext().getAssets(), "svg/strelka.svg");
+      updateForMode(getContext().getAssets());
+    }
+    catch (Exception ex) {
+      throw new Error("Can't load svg", ex);
     }
   }
 
@@ -182,15 +195,15 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
     synchronized (gfxLock) {
       try {
         final Type type = Model.getInstance().getType();
-        if (type != null){
-          vertushka = SVGParser.getSVGFromAsset(manager, "svg/"+type.getResource());
+        if (type != null) {
+          vertushka = SVGParser.getSVGFromAsset(manager, "svg/" + type.getResource());
         }
         resize();
       }
       catch (Exception ex) {
         throw new Error("Can't load svg", ex);
       }
-      finally{
+      finally {
         refresh();
       }
     }
@@ -214,14 +227,16 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
   @Override
   public void surfaceDestroyed(final SurfaceHolder surfaceHolder) {
     try {
-      this.theThread.interrupt();
+      final Thread thr = this.theThread;
+      if (thr != null)
+        thr.interrupt();
     }
     catch (Exception ex) {
       ex.printStackTrace();
     }
   }
 
-  public void startTurn(){
+  public void startTurn() {
     if (angleSpeed == 0.0f) {
       startIteration(r.nextInt(300));
     }
@@ -241,13 +256,15 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
   @Override
   public void run() {
     while (!disposed && !Thread.currentThread().isInterrupted()) {
-      if (this.paused){
+      if (this.paused) {
         try {
           Thread.sleep(200L);
-        }catch(InterruptedException ex){
+        }
+        catch (InterruptedException ex) {
           break;
         }
-      }else {
+      }
+      else {
         if (angleSpeed > 0.0f) {
           angle += angleSpeed;
           if (angle >= 360.0f) {
@@ -270,6 +287,8 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
         }
       }
     }
+
+    Log.i("PirateDice", "Drawing thread has been completed");
   }
 
   @Override
@@ -298,7 +317,9 @@ public class InteractiveIndicator extends SurfaceView implements SurfaceHolder.C
   public void onDispose(final Model m) {
     try {
       this.disposed = true;
-      this.theThread.interrupt();
+      final Thread thr = this.theThread;
+      if (thr != null)
+        thr.interrupt();
     }
     catch (Exception ex) {
       ex.printStackTrace();

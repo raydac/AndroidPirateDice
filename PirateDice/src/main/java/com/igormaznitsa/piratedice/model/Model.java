@@ -6,11 +6,13 @@ import java.util.List;
 public class Model {
 
   public interface ModelListener {
-        void onModelChanged(Model m);
-        void onPause(Model m, boolean pause);
-        void onDispose(Model m);
-        void doStartTurn(Model m);
-    }
+
+    void onRestore(Model m);
+    void onPause(Model m, boolean pause);
+    void onDispose(Model m);
+    void doStartTurn(Model m);
+    void onModelChanged(Model m);
+  }
 
     private static Model instance;
 
@@ -18,7 +20,14 @@ public class Model {
     private Type type = Type.STANDARD;
     private boolean paused;
 
-    private void fireListeners(){
+    public void doRestore() {
+      for(final ModelListener l : listeners){
+        l.onRestore(this);
+      }
+    }
+
+
+  private void fireListeners(){
         for(final ModelListener l : listeners){
             l.onModelChanged(this);
         }

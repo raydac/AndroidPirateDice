@@ -10,7 +10,9 @@ The Android application is compatible with Android 2.1+. Either build it self or
 After start you will see the dice indicator. Just touch the screen to start turn.   
 ![Standard screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_standard.jpg)
 ![Pro screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_pro.jpg)
-![Redesigned screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_redisigned.jpg)
+![Redesigned screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_redisigned.jpg)   
+Also the applications can work wit non-touch screens so that it can be started even on Android based TV devices like IconBit Toucan 3D   
+![TV Screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_tv.jpg)   
 # How to change the dice layout?
 To change the dice layout to PRO or REDESIGNED versions is very easy, just open the menu of the application and select 'Pro' item. Every layout change, the menu item will be changing its name to the next layout identifier.   
 ![Menu screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_menu.jpg)   
