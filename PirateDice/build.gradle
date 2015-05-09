@@ -8,14 +8,17 @@ buildscript {
     }
 }
 apply plugin: 'com.android.application'
+apply from: 'preprocess.gradle'
 
 repositories {
     jcenter()
 }
 
+
 android {
     compileSdkVersion 7
     buildToolsVersion "20.0.0"
+
 
     defaultConfig {
         applicationId "com.igormaznitsa.piratedice"

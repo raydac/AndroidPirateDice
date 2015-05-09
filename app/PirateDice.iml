@@ -46,10 +46,10 @@
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/debug/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/debug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/main/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../PirateDice/preprocessed/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/main/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/main/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../PirateDice/preprocessed/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../PirateDice/src/androidTest/res" type="java-test-resource" />
