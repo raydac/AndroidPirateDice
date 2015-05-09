@@ -1,6 +1,11 @@
 # Introduction
 In my childhood I very liked to play in the Pirates board game ([published in the Pioner magazine #6 1989](https://drive.google.com/open?id=0BxHnNp97IgMRem0yUWNwTzEyVVk&authuser=0)), it is great game developed by russian game designer and artist [Vladimir Golytsyn](http://prodesign.ru/game/piraty/vmg_4.htm) in 1934. 
-![Scanned map from the magazine](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/mapinmagazine.jpg)   
+![Scanned map from the magazine](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/mapinmagazine.jpg)
+
+# The Board game rules
+[I made some English translation of the original Russian article.](https://github.com/raydac/AndroidPirateDice/blob/master/Docs/BoardGameReferenceEng.pdf)
+
+# The Game dice
 The Main problem for the game is that the game needs special dice to play   
 ![Special dice for the game](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/realdice.jpg)   
 My friend made such device for our games but at present we have nice smartphones and I decided to make Android version of such dice.
