@@ -10,7 +10,9 @@ The Main problem for the game is that the game needs special dice to play
 ![Special dice for the game](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/realdice.jpg)   
 My friend made such device for our games but at present we have nice smartphones and I decided to make Android version of such dice.
 # How to install?
-The Android application is compatible with Android 2.1+. Either build it self or [download my prebuilt APK file](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.2/PirateDice.apk) and install to your device. 
+The Android application is compatible with Android 2.1+.    
+[![Google play](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=com.igormaznitsa.piratedice)   
+Also You can [download prebuilt APK file](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.2/PirateDice.apk) and install manually to your device. 
 # How to use?
 After start you will see the dice indicator. Just touch the screen (with some delay) to start turn.   
 ![Standard screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_standard.jpg)
