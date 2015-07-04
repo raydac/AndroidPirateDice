@@ -29,3 +29,7 @@ To change the dice layout to PRO or REDESIGNED versions is very easy, just open 
 # Redesigned version of the paper board game
 Also I found [very interesting project developed by entusiasts from one Russian board game forum](http://www.boardgamer.ru/piraty-raspechataj-i-igraj#more-27882), they have totaly reworked and redesigned game components and even made some improvements in game process.   
 ![Redesigned map](http://savepic.org/4230743.jpg)
+
+# Donation   
+If you like the software you can make some donation to the author   
+[![https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AHWJHJFBAWGL2)
