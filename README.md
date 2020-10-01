@@ -1,4 +1,5 @@
 # Introduction
+# Amazing past time game
 In childhood everyone liked to play in the Pirates board game ([published in the Pioner magazine #6 1989](https://drive.google.com/open?id=0BxHnNp97IgMRem0yUWNwTzEyVVk&authuser=0)), it is great game developed by russian game designer and artist [Vladimir Golytsyn](http://prodesign.ru/game/piraty/vmg_4.htm) in 1934. 
 ![Scanned map from the magazine](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/mapinmagazine.jpg)
 
