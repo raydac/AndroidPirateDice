@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/action_redesigned"
+            android:orderInCategory="95"
+            android:title="@string/title_menu_redesigned"
+            />
+    <item
+            android:id="@+id/action_pro"
+            android:orderInCategory="100"
+            android:title="@string/title_menu_pro"
+            />
+    <item
+            android:id="@+id/action_standard"
+            android:orderInCategory="105"
+            android:title="@string/title_menu_standard"
+            />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="110"
+        android:title="@string/title_menu_help"
+    />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="115"
+        android:title="@string/title_menu_about"
+    />
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="125"
+        android:title="@string/title_menu_exit"
+    />
+</menu>
