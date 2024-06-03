@@ -1,36 +1,26 @@
 # Introduction
-# Amazing past time game
-In childhood everyone liked to play in the Pirates board game ([published in the Pioner magazine #6 1989](https://drive.google.com/open?id=0BxHnNp97IgMRem0yUWNwTzEyVVk&authuser=0)), it is great game developed by russian game designer and artist [Vladimir Golytsyn](http://prodesign.ru/game/piraty/vmg_4.htm) in 1934. 
+
+In my childhood, my friends and I spent a lot of time to play the Pirates board game ([published in the Pioner magazine #6 1989](https://drive.google.com/open?id=0BxHnNp97IgMRem0yUWNwTzEyVVk&authuser=0)), it was a great game developed by the russian artist [Vladimir Golytsyn](http://prodesign.ru/game/piraty/vmg_4.htm) in 1934. 
 ![Scanned map from the magazine](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/mapinmagazine.jpg)
 
 # The Board game rules
-[I made some English translation of the original Russian article.](https://github.com/raydac/AndroidPirateDice/blob/master/Docs/BoardGameReferenceEng.pdf)
+[I made an attempt to translate the original Russian magazine article to English.](https://github.com/raydac/AndroidPirateDice/blob/master/Docs/BoardGameReferenceEng.pdf)
 
 # The Game dice
-The Main problem for the game is that the game needs special dice to play   
+The Pirate game needs a special dice which was expected to be made manually.   
 ![Special dice for the game](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/realdice.jpg)   
-My friend made such device for our games but at present we have nice smartphones and I decided to make Android version of such dice.
+One my friend made one from an old can, but today it's too old-fashioned way.
+
 # How to install?
-The Android application is compatible with Android 2.1+.    
-[![Google play](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=com.igormaznitsa.piratedice)   
-Also You can [download prebuilt APK file](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.2/PirateDice.apk) and install manually to your device. 
+The Android application is compatible with Android 12+ (Android Platform 31+).
+You can [download the pre-built APK file](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.3/IamPirateDice_release_D_03-06-2024_V_1.0.apk) and install it manually.  
+
 # How to use?
-After start you will see the dice indicator. Just touch the screen (with some delay) to start turn.   
+After start you will see the dice indicator. Just touch the screen close to the arrow center.   
 ![Standard screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_standard.jpg)
 ![Pro screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_pro.jpg)
 ![Redesigned screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_redisigned.jpg)   
-Also the applications can work wit non-touch screens so that it can be started even on Android based TV devices like IconBit Toucan 3D   
-![TV Screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_tv.jpg)   
+
 # How to change the dice layout?
 To change the dice layout to PRO or REDESIGNED versions is very easy, just open the menu of the application and select 'Pro' item. Every layout change, the menu item will be changing its name to the next layout identifier.   
 ![Menu screen](https://raw.githubusercontent.com/raydac/AndroidPirateDice/master/miscgfx/scr_menu.jpg)   
-# Where to load?
-[You can download the latest reseased APK through the link.](https://github.com/raydac/AndroidPirateDice/releases/download/1.0.2/PirateDice.apk)   
-[Also you can visit my Google Folder related to the "Pirates" game.](https://drive.google.com/open?id=0BxHnNp97IgMRfnhZdGFwTnZVYlVoN3RfT3FrVFBnVHQwRU95NldTbEJCRGFEZGczNzhFUHM&authuser=0)
-# Redesigned version of the paper board game
-Also I found [very interesting project developed by entusiasts from one Russian board game forum](http://www.boardgamer.ru/piraty-raspechataj-i-igraj#more-27882), they have totaly reworked and redesigned game components and even made some improvements in game process.   
-![Redesigned map](http://savepic.org/4230743.jpg)
-
-# Donation   
-If you like the software you can make some donation to the author   
-[![https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AHWJHJFBAWGL2)
