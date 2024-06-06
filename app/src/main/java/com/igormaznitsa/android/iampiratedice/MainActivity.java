@@ -11,11 +11,16 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class MainActivity extends AppCompatActivity implements Model.ModelListener {
 
-  private final AtomicReference<Thread> currentThread = new AtomicReference<>();
+  private final AtomicBoolean inWork = new AtomicBoolean();
+  private final ExecutorService executor = Executors.newSingleThreadExecutor(
+      r -> new Thread(null, r, "pirate-dice-thread", 102400));
   private final Random random = new Random(System.currentTimeMillis());
   private ImageView imagePlate;
   private ImageView imageArrow;
@@ -33,9 +38,10 @@ public class MainActivity extends AppCompatActivity implements Model.ModelListen
   }
 
   private void stopThread() {
-    final Thread thread = this.currentThread.getAndSet(null);
-    if (thread != null) {
-      thread.interrupt();
+    try {
+      this.executor.shutdownNow();
+    } finally {
+      this.inWork.set(false);
     }
   }
 
@@ -56,20 +62,25 @@ public class MainActivity extends AppCompatActivity implements Model.ModelListen
 
     final AtomicReference<Float> delta = new AtomicReference<>((random.nextFloat() + 0.08f) * 100f);
 
-    final Thread newThread = new Thread(() -> {
+    final Runnable newThread = () -> {
       try {
-        while (!Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted() && delta.get() > 0.0f) {
           final float angle = imageView.getRotation();
           float newAngle = angle + delta.get();
-          if (newAngle > 360.0f) newAngle -= 360.0f;
+          if (newAngle > 360.0f) {
+            newAngle -= 360.0f;
+          }
 
           final float resultAngle = newAngle;
-          imageView.post(() -> imageView.setRotation(resultAngle));
+          imageView.post(() -> {
+            try {
+              imageView.setRotation(resultAngle);
+            } catch (Exception ex) {
+              // do nothing
+            }
+          });
 
           delta.set(delta.get() - 0.8f);
-          if (delta.get() <0.0f) {
-            break;
-          }
           try {
             Thread.sleep(25L);
           } catch (InterruptedException ex) {
@@ -78,12 +89,12 @@ public class MainActivity extends AppCompatActivity implements Model.ModelListen
           }
         }
       } finally {
-        this.currentThread.set(null);
+        this.inWork.set(false);
       }
-    }, "main-activity-dice-thread");
-    newThread.setDaemon(true);
-    if (this.currentThread.compareAndSet(null, newThread)) {
-      newThread.start();
+    };
+
+    if (this.inWork.compareAndSet(false, true)) {
+      this.executor.execute(newThread);
     }
   }
 
@@ -93,16 +104,18 @@ public class MainActivity extends AppCompatActivity implements Model.ModelListen
   }
 
   private boolean isHotSpot(final float x, final float y) {
-    if (this.imageArrow == null) return false;
+    if (this.imageArrow == null) {
+      return false;
+    }
     final int centerX = this.imageArrow.getWidth() / 2;
     final int centerY = this.imageArrow.getHeight() / 2;
     final double dx = centerX - x;
     final double dy = centerY - y;
 
     final double distanceInDp = Math.sqrt(dx * dx + dy * dy) /
-        (getResources().getDisplayMetrics().densityDpi / (double)DisplayMetrics.DENSITY_DEFAULT);
+        (getResources().getDisplayMetrics().densityDpi / (double) DisplayMetrics.DENSITY_DEFAULT);
 
-    return  distanceInDp < 48.0d;
+    return distanceInDp < 48.0d;
   }
 
   @Override
@@ -122,7 +135,8 @@ public class MainActivity extends AppCompatActivity implements Model.ModelListen
     this.imageArrow.setOnClickListener(v -> Model.getInstance().startTurn());
 
     this.imageArrow.setOnTouchListener((v, event) -> {
-      if (event.getAction() == MotionEvent.ACTION_UP && this.isHotSpot(event.getX(), event.getY())) {
+      if (event.getAction() == MotionEvent.ACTION_UP &&
+          this.isHotSpot(event.getX(), event.getY())) {
         Model.getInstance().startTurn();
       }
       return true;
@@ -141,7 +155,8 @@ public class MainActivity extends AppCompatActivity implements Model.ModelListen
     new AlertDialog.Builder(MainActivity.this)
         .setTitle(title)
         .setMessage(message)
-        .setPositiveButton(getResources().getString(R.string.ok), (dialog, which) -> dialog.dismiss())
+        .setPositiveButton(getResources().getString(R.string.ok),
+            (dialog, which) -> dialog.dismiss())
         .show();
   }
 
